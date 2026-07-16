@@ -2,32 +2,29 @@ import random
 
 import streamlit as st
 
-st.set_page_config(page_title="중학생 영단어 게임", page_icon="📚", layout="centered")
+st.set_page_config(page_title="세븐틴 퀴즈", page_icon="🎤", layout="centered")
 
-st.title("📚 중학생 영단어 게임")
-st.write("난이도를 선택하고, 뜻에 맞는 영어 단어를 맞혀 보세요!")
+st.title("🎤 세븐틴 퀴즈")
+st.write("난이도를 선택하고, 세븐틴 지식으로 퀴즈를 풀어보세요!")
 
 QUIZ_DATA = {
     "쉬움": [
-        {"word": "friend", "choices": ["친구", "학교", "집", "책"], "answer": "친구"},
-        {"word": "school", "choices": ["집", "학교", "친구", "바다"], "answer": "학교"},
-        {"word": "happy", "choices": ["슬픈", "행복한", "배고픈", "빠른"], "answer": "행복한"},
-        {"word": "weather", "choices": ["날씨", "시간", "음식", "음악"], "answer": "날씨"},
-        {"word": "book", "choices": ["책", "연필", "의자", "문"], "answer": "책"},
+        {"question": "세븐틴의 공식 팬클럽 이름은 무엇인가요?", "choices": ["Carat", "Weverse", "Mingus", "Stay"], "answer": "Carat"},
+        {"question": "세븐틴의 리더는 누구인가요?", "choices": ["에스쿱스", "호시", "디노", "버논"], "answer": "에스쿱스"},
+        {"question": "세븐틴은 총 몇 명으로 이루어져 있나요?", "choices": ["11명", "13명", "10명", "14명"], "answer": "13명"},
+        {"question": "세븐틴의 데뷔 앨범 제목은 무엇인가요?", "choices": ["17 Carat", "FML", "Face the Sun", "Attacca"], "answer": "17 Carat"},
     ],
     "보통": [
-        {"word": "improve", "choices": ["향상시키다", "버리다", "잃다", "기다리다"], "answer": "향상시키다"},
-        {"word": "discover", "choices": ["발견하다", "사다", "읽다", "질문하다"], "answer": "발견하다"},
-        {"word": "protect", "choices": ["보호하다", "기억하다", "이동하다", "포기하다"], "answer": "보호하다"},
-        {"word": "suddenly", "choices": ["갑자기", "매일", "혼자서", "천천히"], "answer": "갑자기"},
-        {"word": "introduce", "choices": ["소개하다", "공부하다", "생각하다", "지우다"], "answer": "소개하다"},
+        {"question": "세븐틴의 첫 정규 앨범 제목은 무엇인가요?", "choices": ["Love & Letter", "Face the Sun", "Heng:garæ", "Seventeenth Heaven"], "answer": "Love & Letter"},
+        {"question": "세븐틴의 메인댄서로 알려진 멤버는 누구인가요?", "choices": ["호시", "민규", "우지", "준"], "answer": "호시"},
+        {"question": "세븐틴의 2023년 앨범 제목은 무엇인가요?", "choices": ["FML", "Seventeenth Heaven", "Heng:garæ", "17 Is Right Here"], "answer": "FML"},
+        {"question": "세븐틴의 멤버 'The8'로 알려진 사람은 누구인가요?", "choices": ["디노", "민규", "민호", "호시"], "answer": "민호"},
     ],
     "어려움": [
-        {"word": "responsible", "choices": ["책임감 있는", "무심한", "불안한", "아쉬운"], "answer": "책임감 있는"},
-        {"word": "opportunity", "choices": ["기회", "실수", "자원", "피로"], "answer": "기회"},
-        {"word": "convenient", "choices": ["편리한", "어려운", "귀한", "복잡한"], "answer": "편리한"},
-        {"word": "maintain", "choices": ["유지하다", "포기하다", "감사하다", "배우다"], "answer": "유지하다"},
-        {"word": "evidence", "choices": ["증거", "기억", "감정", "행동"], "answer": "증거"},
+        {"question": "세븐틴의 유닛 BSS를 이루는 멤버는 누구인가요?", "choices": ["호시, DK, 승관", "에스쿱스, 우지, 버논", "도겸, 승관, 민호", "호시, 디노, 민규"], "answer": "호시, DK, 승관"},
+        {"question": "세븐틴의 2020년 정규 앨범 제목은 무엇인가요?", "choices": ["Heng:garæ", "Face the Sun", "Attacca", "FML"], "answer": "Heng:garæ"},
+        {"question": "세븐틴의 2021년 미니 앨범 제목은 무엇인가요?", "choices": ["Attacca", "No Easy", "Seventeenth Heaven", "17 Is Right Here"], "answer": "Attacca"},
+        {"question": "세븐틴이 2024년에 발매한 정규 앨범의 제목은 무엇인가요?", "choices": ["17 Is Right Here", "Seventeenth Heaven", "FML", "Happy Ending"], "answer": "17 Is Right Here"},
     ],
 }
 
@@ -89,22 +86,22 @@ current_choices = st.session_state.question_choices[st.session_state.current_ind
 
 st.sidebar.markdown("### 난이도 안내")
 if st.session_state.difficulty == "쉬움":
-    st.sidebar.write("기초 단어 위주로 익히기 좋은 난이도입니다.")
+    st.sidebar.write("기초 세븐틴 지식 위주로 익히기 좋은 난이도입니다.")
 elif st.session_state.difficulty == "보통":
-    st.sidebar.write("중학생 수준의 일반적인 단어를 다룹니다.")
+    st.sidebar.write("멤버와 앨범 정보까지 포함된 중간 난이도입니다.")
 else:
-    st.sidebar.write("좀 더 어려운 단어와 뜻을 묻는 도전형 문제입니다.")
+    st.sidebar.write("유닛과 활동 정보까지 묻는 도전형 문제입니다.")
 
 st.progress((st.session_state.current_index + 1) / len(questions))
 st.caption(f"{st.session_state.difficulty} 난이도 · {st.session_state.current_index + 1}/{len(questions)}")
 
 if st.session_state.finished:
-    st.success(f"게임이 끝났습니다! 최종 점수는 {st.session_state.score}/{len(questions)}점입니다.")
+    st.success(f"퀴즈가 끝났습니다! 최종 점수는 {st.session_state.score}/{len(questions)}점입니다.")
     if st.button("다시 도전하기"):
         reset_game()
         st.rerun()
 else:
-    st.subheader(f"{current_question['word']}의 뜻은?")
+    st.subheader(current_question["question"])
 
     if st.session_state.show_answer:
         if st.session_state.correct:
@@ -124,7 +121,7 @@ else:
                 st.session_state.show_answer = False
                 st.rerun()
     else:
-        selected_answer = st.radio("뜻을 선택하세요", current_choices)
+        selected_answer = st.radio("정답을 선택하세요", current_choices)
 
         if st.button("정답 확인"):
             st.session_state.show_answer = True
