@@ -18,10 +18,10 @@ QUIZ_DATA = {
         {"question": "세븐틴의 첫 정규 앨범 제목은 무엇인가요?", "choices": ["Love & Letter", "Face the Sun", "Heng:garæ", "Seventeenth Heaven"], "answer": "Love & Letter"},
         {"question": "세븐틴의 메인댄서로 알려진 멤버는 누구인가요?", "choices": ["호시", "민규", "우지", "준"], "answer": "호시"},
         {"question": "세븐틴의 2023년 앨범 제목은 무엇인가요?", "choices": ["FML", "Seventeenth Heaven", "Heng:garæ", "17 Is Right Here"], "answer": "FML"},
-        {"question": "세븐틴의 멤버 'The8'로 알려진 사람은 누구인가요?", "choices": ["디노", "민규", "민호", "호시"], "answer": "민호"},
+        {"question": "세븐틴의 멤버 'The8'로 알려진 사람은 누구인가요?", "choices": ["디노", "민규", "명호", "호시"], "answer": "명호"},
     ],
     "어려움": [
-        {"question": "세븐틴의 유닛 BSS를 이루는 멤버는 누구인가요?", "choices": ["호시, DK, 승관", "에스쿱스, 우지, 버논", "도겸, 승관, 민호", "호시, 디노, 민규"], "answer": "호시, DK, 승관"},
+        {"question": "세븐틴의 유닛 BSS를 이루는 멤버는 누구인가요?", "choices": ["호시, DK, 승관", "에스쿱스, 우지, 버논", "도겸, 승관, 명호", "호시, 디노, 민규"], "answer": "호시, DK, 승관"},
         {"question": "세븐틴의 2020년 정규 앨범 제목은 무엇인가요?", "choices": ["Heng:garæ", "Face the Sun", "Attacca", "FML"], "answer": "Heng:garæ"},
         {"question": "세븐틴의 2021년 미니 앨범 제목은 무엇인가요?", "choices": ["Attacca", "No Easy", "Seventeenth Heaven", "17 Is Right Here"], "answer": "Attacca"},
         {"question": "세븐틴이 2024년에 발매한 정규 앨범의 제목은 무엇인가요?", "choices": ["17 Is Right Here", "Seventeenth Heaven", "FML", "Happy Ending"], "answer": "17 Is Right Here"},
