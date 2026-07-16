@@ -32,12 +32,21 @@ QUIZ_DATA = {
 }
 
 
+def get_shuffled_choices(question):
+    choices = list(question["choices"])
+    if question["answer"] not in choices:
+        choices.append(question["answer"])
+    random.shuffle(choices)
+    return choices
+
+
 def reset_game():
     st.session_state.current_index = 0
     st.session_state.score = 0
     st.session_state.show_answer = False
     st.session_state.correct = False
     st.session_state.finished = False
+    st.session_state.question_choices = {}
 
 
 if "difficulty" not in st.session_state:
@@ -74,9 +83,7 @@ if "question_choices" not in st.session_state:
     st.session_state.question_choices = {}
 
 if st.session_state.current_index not in st.session_state.question_choices:
-    choices = current_question["choices"][:]
-    random.shuffle(choices)
-    st.session_state.question_choices[st.session_state.current_index] = choices
+    st.session_state.question_choices[st.session_state.current_index] = get_shuffled_choices(current_question)
 
 current_choices = st.session_state.question_choices[st.session_state.current_index]
 
