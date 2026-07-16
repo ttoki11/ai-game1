@@ -1,3 +1,5 @@
+import random
+
 import streamlit as st
 
 st.set_page_config(page_title="중학생 영단어 게임", page_icon="📚", layout="centered")
@@ -68,6 +70,16 @@ if st.session_state.difficulty is None:
 questions = QUIZ_DATA[st.session_state.difficulty]
 current_question = questions[st.session_state.current_index]
 
+if "question_choices" not in st.session_state:
+    st.session_state.question_choices = {}
+
+if st.session_state.current_index not in st.session_state.question_choices:
+    choices = current_question["choices"][:]
+    random.shuffle(choices)
+    st.session_state.question_choices[st.session_state.current_index] = choices
+
+current_choices = st.session_state.question_choices[st.session_state.current_index]
+
 st.sidebar.markdown("### 난이도 안내")
 if st.session_state.difficulty == "쉬움":
     st.sidebar.write("기초 단어 위주로 익히기 좋은 난이도입니다.")
@@ -105,7 +117,7 @@ else:
                 st.session_state.show_answer = False
                 st.rerun()
     else:
-        selected_answer = st.radio("뜻을 선택하세요", current_question["choices"])
+        selected_answer = st.radio("뜻을 선택하세요", current_choices)
 
         if st.button("정답 확인"):
             st.session_state.show_answer = True
